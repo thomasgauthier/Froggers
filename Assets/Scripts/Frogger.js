@@ -22,6 +22,7 @@ function Update () {
     
 	var translationZ : float;
 	var translationY : float;   
+	var translationX : float;   
 
    	   	   
    	if (Input.GetKey(upKey)){
@@ -53,22 +54,25 @@ function Update () {
 	}else{
 		translationY = 0;
 	}
-	
-	// Translate frogger according the Y and Z translation variable
-	transform.Translate(0,translationY,translationZ);
+
     
     // Rotate frogger 90 degrees left or right
-	if(Input.GetKeyDown(rightKey)){
+	if(Input.GetKey(rightKey)){
 		
 		// right
-	    transform.eulerAngles.y += 90; 
+	    //transform.eulerAngles.y += 90; 
+	    translationX = 1 * speed * Time.deltaTime;
+
     
-    } else if(Input.GetKeyDown(leftKey)){
+    } else if(Input.GetKey(leftKey)){
 	    
 	    // left
-	    transform.eulerAngles.y -= 90; 
+        translationX = -1 * speed * Time.deltaTime;
     	
     }
+        	
+    // Translate frogger according the Y and Z translation variable
+	transform.Translate(translationX,translationY,translationZ);
     
 }
 
