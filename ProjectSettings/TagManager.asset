@@ -8,6 +8,7 @@ TagManager:
   - Log
   - Point
   - Water
+  - Turtle
   layers:
   - Default
   - TransparentFX
