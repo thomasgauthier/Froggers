@@ -2,8 +2,8 @@ using UnityEngine;
 using System.Collections;
 
 public class Frogger : MonoBehaviour {
-	static int lives = 3;
-	static int points = 0;
+	public static int lives = 3;
+	public static int points = 0;
 	public float speed = 3.0f;
 	public GameObject blood;
 	public string upKey = "up"; 
@@ -35,24 +35,24 @@ public class Frogger : MonoBehaviour {
 			// deltaTime: time in seconds to complete the last frame
 			//translationZ = 1 * speed * Time.deltaTime;
 			// Play child animation
-			child.GetComponent.<Animation>().CrossFade("Jump");
+			child.GetComponent<Animation>().CrossFade("Jump");
 			gameObject.GetComponent<MoveMe>().speed = 0;
-			transform.Translate(0,0,2.5ff);
+			transform.Translate(0,0,2.5f);
 
 		}else if (Input.GetKeyDown(downKey)){
 
 			// calculate Z translation 
 			//translationZ = -1 * speed * Time.deltaTime;;
 			// Play child animation
-			child.GetComponent.<Animation>().CrossFade("Jump"); 
+			child.GetComponent<Animation>().CrossFade("Jump"); 
 			gameObject.GetComponent<MoveMe>().speed = 0;
-			transform.Translate(0,0,-2.5ff);
+			transform.Translate(0,0,-2.5f);
 
 		} else {
 
 			// reset translation Z speed
 			translationZ = 0; 
-			child.GetComponent.<Animation>().CrossFade("Stop");
+			child.GetComponent<Animation>().CrossFade("Stop");
 
 		}
 
@@ -70,7 +70,7 @@ public class Frogger : MonoBehaviour {
 			// right
 			//transform.eulerAngles.y += 90; 
 			//translationX = 1 * speed * Time.deltaTime;
-			transform.Translate(2.5ff,0,0);
+			transform.Translate(2.5f,0,0);
 
 
 
@@ -78,7 +78,7 @@ public class Frogger : MonoBehaviour {
 
 			// left
 			//translationX = -1 * speed * Time.deltaTime;
-			transform.Translate(-2.5ff,0,0);
+			transform.Translate(-2.5f,0,0);
 		}
 
 		// Translate frogger according the Y and Z translation variable
@@ -91,7 +91,7 @@ public class Frogger : MonoBehaviour {
 	void  OnTriggerEnter ( Collider other  ){
 		if(other.gameObject.tag == "Car"){
 
-			Instantiate(blood,Vector3(transform.position.x,0.05f,transform.position.z), Quaternion.identity);
+			Instantiate(blood, new Vector3(transform.position.x,0.05f,transform.position.z), Quaternion.identity);
 			if(readynow){
 				froggerHit();
 			}
@@ -108,7 +108,7 @@ public class Frogger : MonoBehaviour {
 		if(other.gameObject.tag == "Turtle"){
 
 			//transform.parent = other.transform;
-			gameObject.GetComponent<MoveMe>().speed = other.transform.GetComponent<"MoveMe">().speed;
+			gameObject.GetComponent<MoveMe>().speed = other.transform.GetComponent<MoveMe>().speed;
 
 
 		} 
@@ -122,11 +122,11 @@ public class Frogger : MonoBehaviour {
 	}
 
 
-	void  froggerHit (){
+	IEnumerator  froggerHit (){
 
 		readynow=false;
 
-		child.GetComponent.<Renderer>().enabled = false;
+		child.GetComponent<Renderer>().enabled = false;
 		yield return new WaitForSeconds(1);
 
 		// check if frogger respawns or dies
@@ -140,7 +140,7 @@ public class Frogger : MonoBehaviour {
 			Application.LoadLevel ("Start");
 		}
 
-		child.GetComponent.<Renderer>().enabled = true;
+		child.GetComponent<Renderer>().enabled = true;
 
 		readynow=true;
 	}

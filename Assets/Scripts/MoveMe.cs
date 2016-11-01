@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class MoveMe : MonoBehaviour {
-	float speed;
+	public float speed;
 
 	void  FixedUpdate (){
-		transform.position.x = transform.position.x + speed;
+		transform.position = new Vector3 (transform.position.x + speed, transform.position.y, transform.position.z);
 	}
 }

@@ -5,6 +5,6 @@ public class MoveRigidbody : MonoBehaviour {
 	float speed;
 
 	void  Update (){
-		GetComponent.<Rigidbody>().velocity = Vector3(speed,0,0);
+		GetComponent<Rigidbody>().velocity = new Vector3(speed,0,0);
 	}
 }

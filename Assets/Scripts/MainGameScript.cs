@@ -14,14 +14,14 @@ public class MainGameScript : MonoBehaviour {
 		} 
 	}
 
-	void  CreateCars (){
+		IEnumerator  CreateCars (){
 
 		readynow=false;
 
 		// create a new car
-		FIXME_VAR_TYPE track= Random.Range(0,-4);
+		float track= Random.Range(0,-4);
 		Debug.Log(track);
-		FIXME_VAR_TYPE car= Instantiate(car,Vector3(8,2,(track*4)), Quaternion.identity);
+        GameObject newcar = (GameObject)Instantiate(car, new Vector3(8,2,(track*4)), Quaternion.identity);
 
 		// create timer delay
 		float waitTime = Random.Range(0.1f,CarSpawnDelay);
