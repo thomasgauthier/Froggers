@@ -16,7 +16,6 @@ public class Frogger : MonoBehaviour {
 	private Transform child; 
 
 	void  Start (){
-
 		startPos = transform.position;
 		child = transform.Find("frogger"); 
 
@@ -33,32 +32,21 @@ public class Frogger : MonoBehaviour {
 
 			// calculate Z translation
 			// deltaTime: time in seconds to complete the last frame
-			//translationZ = 1 * speed * Time.deltaTime;
 			// Play child animation
-			child.GetComponent<Animation>().CrossFade("Jump");
-			gameObject.GetComponent<MoveMe>().speed = 0;
 			transform.Translate(0,0,2.5f);
 
 		}else if (Input.GetKeyDown(downKey)){
 
 			// calculate Z translation 
-			//translationZ = -1 * speed * Time.deltaTime;;
 			// Play child animation
-			child.GetComponent<Animation>().CrossFade("Jump"); 
-			gameObject.GetComponent<MoveMe>().speed = 0;
 			transform.Translate(0,0,-2.5f);
-
 		} else {
-
 			// reset translation Z speed
 			translationZ = 0; 
-			child.GetComponent<Animation>().CrossFade("Stop");
-
 		}
 
 		if(Input.GetKeyDown(jumpKey)){
 			// calculate Y translation
-			//translationY = speed * Time.deltaTime;
 		}else{
 			translationY = 0;
 		}
@@ -66,23 +54,16 @@ public class Frogger : MonoBehaviour {
 
 		// Rotate frogger 90 degrees left or right
 		if(Input.GetKeyDown(rightKey)){
-
 			// right
-			//transform.eulerAngles.y += 90; 
-			//translationX = 1 * speed * Time.deltaTime;
 			transform.Translate(2.5f,0,0);
 
 
 
 		} else if(Input.GetKeyDown(leftKey)){
-
 			// left
-			//translationX = -1 * speed * Time.deltaTime;
 			transform.Translate(-2.5f,0,0);
 		}
-
-		// Translate frogger according the Y and Z translation variable
-		//transform.Translate(translationX,translationY,translationZ);
+			
 
 	}
 
@@ -106,10 +87,6 @@ public class Frogger : MonoBehaviour {
 
 
 		if(other.gameObject.tag == "Turtle"){
-
-			//transform.parent = other.transform;
-			gameObject.GetComponent<MoveMe>().speed = other.transform.GetComponent<MoveMe>().speed;
-
 
 		} 
 
