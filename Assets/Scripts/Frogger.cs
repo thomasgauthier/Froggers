@@ -14,17 +14,56 @@ public class Frogger : MonoBehaviour {
 
 	private Vector3 startPos;
 	private Transform child; 
-	public Renderer TurnRed;
 
-		void  Start (){
-
+	void  Start (){
 		startPos = transform.position;
 		child = transform.Find("frogger"); 
 
 	}
 
 	void  Update (){
-				
+
+		float translationZ;
+		float translationY;   
+		float translationX;   
+
+
+		if (Input.GetKeyDown(upKey)){
+
+			// calculate Z translation
+			// deltaTime: time in seconds to complete the last frame
+			// Play child animation
+			transform.Translate(0,0,2.5f);
+
+		}else if (Input.GetKeyDown(downKey)){
+
+			// calculate Z translation 
+			// Play child animation
+			transform.Translate(0,0,-2.5f);
+		} else {
+			// reset translation Z speed
+			translationZ = 0; 
+		}
+
+		if(Input.GetKeyDown(jumpKey)){
+			// calculate Y translation
+		}else{
+			translationY = 0;
+		}
+
+
+		// Rotate frogger 90 degrees left or right
+		if(Input.GetKeyDown(rightKey)){
+			// right
+			transform.Translate(2.5f,0,0);
+
+
+
+		} else if(Input.GetKeyDown(leftKey)){
+			// left
+			transform.Translate(-2.5f,0,0);
+		}
+			
 
 	}
 
@@ -33,7 +72,7 @@ public class Frogger : MonoBehaviour {
 	void  OnTriggerEnter ( Collider other  ){
 		if(other.gameObject.tag == "Car"){
 
-			Instantiate(blood, new Vector3(transform.position.x,0.05f,transform.position.z), Quaternion.identity);
+						Instantiate(blood, new Vector3(transform.position.x,0.55f,transform.position.z), Quaternion.identity);
 			if(readynow){
 				StartCoroutine(froggerHit());
 			}
@@ -48,10 +87,6 @@ public class Frogger : MonoBehaviour {
 
 
 		if(other.gameObject.tag == "Turtle"){
-
-			//transform.parent = other.transform;
-			gameObject.GetComponent<MoveMe>().speed = other.transform.GetComponent<MoveMe>().speed;
-
 
 		} 
 
@@ -68,17 +103,8 @@ public class Frogger : MonoBehaviour {
 
 		readynow=false;
 
-
-				StartCoroutine (Fade ());
-
-
-
-		yield return new WaitForSeconds(1f);
-
-
-				Color color = TurnRed.material.GetColor ("_Color");
-				color.a = 0;
-				TurnRed.material.SetColor ("_Color", color);
+		child.GetComponent<Renderer>().enabled = false;
+		yield return new WaitForSeconds(1);
 
 		// check if frogger respawns or dies
 		if(lives>0){
@@ -91,24 +117,8 @@ public class Frogger : MonoBehaviour {
 			Application.LoadLevel ("Start");
 		}
 
+		child.GetComponent<Renderer>().enabled = true;
 
 		readynow=true;
 	}
-
-
-		IEnumerator Fade() {
-
-				for (float f = 0; f <= 1; f += 0.1f) {
-
-						Color color = TurnRed.material.GetColor ("_Color");
-						color.a = f;
-						TurnRed.material.SetColor ("_Color", color);
-						yield return new WaitForSeconds(.01f);
-					
-				}
-						
-				Color color2 = TurnRed.material.GetColor ("_Color");
-				color2.a = 1;
-				TurnRed.material.SetColor ("_Color", color2);
-		}
 }
