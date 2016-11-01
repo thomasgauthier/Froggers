@@ -1,24 +1,21 @@
 using UnityEngine;
 using System.Collections;
 
-public class MoveMe : MonoBehaviour
-{
-	public float speed;
-	private float initialSpeed;
+public class MoveMe : MonoBehaviour {
+		public float speed;
 
+		private float initSpeed;
 
-	void Awake ()
-	{
-		initialSpeed = speed;
-	}
+		void Awake(){
+				initSpeed = speed;
+		}
 
-	void  FixedUpdate ()
-	{
-		transform.position = new Vector3 (transform.position.x + speed, transform.position.y, transform.position.z);
-	}
+		void  FixedUpdate (){
+				Rigidbody rb = GetComponent<Rigidbody> ();
+				rb.velocity = Vector3.right * speed;
+		}
 
-	public void ResetSpeed ()
-	{
-		speed = initialSpeed;
-	}
+		public void ResetSpeed(){
+				speed = initSpeed;
+		}
 }
