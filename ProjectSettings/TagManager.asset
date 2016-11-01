@@ -9,6 +9,7 @@ TagManager:
   - Point
   - Water
   - Turtle
+  - Polite
   layers:
   - Default
   - TransparentFX
