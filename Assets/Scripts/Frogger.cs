@@ -93,14 +93,14 @@ public class Frogger : MonoBehaviour {
 
 			Instantiate(blood, new Vector3(transform.position.x,0.05f,transform.position.z), Quaternion.identity);
 			if(readynow){
-				froggerHit();
+				StartCoroutine(froggerHit());
 			}
 
 		} 
 
 		if(other.gameObject.tag == "Water") {
 			if(readynow){
-				froggerHit();
+				StartCoroutine(froggerHit());
 			}
 		}
 

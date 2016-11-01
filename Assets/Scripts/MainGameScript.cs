@@ -10,7 +10,7 @@ public class MainGameScript : MonoBehaviour {
 
 	void  Update (){
 		if(readynow){
-			CreateCars();
+            StartCoroutine(CreateCars());
 		} 
 	}
 
