@@ -72,7 +72,7 @@ public class Frogger : MonoBehaviour {
 	void  OnTriggerEnter ( Collider other  ){
 		if(other.gameObject.tag == "Car"){
 
-			Instantiate(blood, new Vector3(transform.position.x,0.05f,transform.position.z), Quaternion.identity);
+						Instantiate(blood, new Vector3(transform.position.x,0.55f,transform.position.z), Quaternion.identity);
 			if(readynow){
 				StartCoroutine(froggerHit());
 			}
