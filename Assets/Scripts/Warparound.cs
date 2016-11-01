@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Warparound : MonoBehaviour
 {
-		float worldWidth;
+		public float worldWidth;
 		private Vector3 resetPos;
 
 		void  Start ()
