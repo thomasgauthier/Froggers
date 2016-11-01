@@ -2,123 +2,113 @@ using UnityEngine;
 using System.Collections;
 
 public class Frogger : MonoBehaviour {
-	public static int lives = 3;
-	public static int points = 0;
-	public float speed = 3.0f;
-	public GameObject blood;
-	public string upKey = "up"; 
-	public string downKey = "down"; 
-	public string leftKey = "left"; 
-	public string rightKey = "right"; 
-	public string jumpKey = "m"; 
+		public static int lives = 3;
+		public static int points = 0;
+		public float speed = 3.0f;
+		public GameObject blood;
+		public string upKey = "up"; 
+		public string downKey = "down"; 
+		public string leftKey = "left"; 
+		public string rightKey = "right"; 
+		public string jumpKey = "m"; 
 
-	private Vector3 startPos;
-	private Transform child; 
+		private Vector3 startPos;
+		private Transform child; 
+		public Renderer TurnRed;
 
-	void  Start (){
-		startPos = transform.position;
-		child = transform.Find("frogger"); 
+		void  Start (){
 
-	}
+				startPos = transform.position;
+				child = transform.Find("frogger"); 
 
-	void  Update (){
-
-		float translationZ;
-		float translationY;   
-		float translationX;   
-
-
-		if (Input.GetKeyDown(upKey)){
-
-			// calculate Z translation
-			// deltaTime: time in seconds to complete the last frame
-			// Play child animation
-			transform.Translate(0,0,2.5f);
-
-		}else if (Input.GetKeyDown(downKey)){
-
-			// calculate Z translation 
-			// Play child animation
-			transform.Translate(0,0,-2.5f);
-		} else {
-			// reset translation Z speed
-			translationZ = 0; 
 		}
 
-		if(Input.GetKeyDown(jumpKey)){
-			// calculate Y translation
-		}else{
-			translationY = 0;
+		void  Update (){
+
+
 		}
 
+		private bool  readynow = true;
 
-		// Rotate frogger 90 degrees left or right
-		if(Input.GetKeyDown(rightKey)){
-			// right
-			transform.Translate(2.5f,0,0);
-
-
-
-		} else if(Input.GetKeyDown(leftKey)){
-			// left
-			transform.Translate(-2.5f,0,0);
-		}
-			
-
-	}
-
-	private bool  readynow = true;
-
-	void  OnTriggerEnter ( Collider other  ){
-		if(other.gameObject.tag == "Car"){
+		void  OnTriggerEnter ( Collider other  ){
+				if(other.gameObject.tag == "Car"){
 
 						Instantiate(blood, new Vector3(transform.position.x,0.55f,transform.position.z), Quaternion.identity);
-			if(readynow){
-				StartCoroutine(froggerHit());
-			}
+						if(readynow){
+								StartCoroutine(froggerHit());
+						}
 
-		} 
+				} 
 
-		if(other.gameObject.tag == "Water") {
-			if(readynow){
-				StartCoroutine(froggerHit());
-			}
+				if(other.gameObject.tag == "Water") {
+						if(readynow){
+								StartCoroutine(froggerHit());
+						}
+				}
+
+
+				if(other.gameObject.tag == "Turtle"){
+
+						//transform.parent = other.transform;
+						gameObject.GetComponent<MoveMe>().speed = other.transform.GetComponent<MoveMe>().speed;
+
+
+				} 
+
+				if(other.gameObject.tag == "Point"){
+						print("Extra Live");
+						lives++;
+						points += 100;
+						Destroy (other.gameObject);
+				}
 		}
 
 
-		if(other.gameObject.tag == "Turtle"){
+		IEnumerator  froggerHit (){
 
-		} 
+				readynow=false;
 
-		if(other.gameObject.tag == "Point"){
-			print("Extra Live");
-			lives++;
-			points += 100;
-			Destroy (other.gameObject);
+
+				StartCoroutine (Fade ());
+
+
+
+				yield return new WaitForSeconds(1f);
+
+
+				Color color = TurnRed.material.GetColor ("_Color");
+				color.a = 0;
+				TurnRed.material.SetColor ("_Color", color);
+
+				// check if frogger respawns or dies
+				if(lives>0){
+						transform.position = startPos; 		
+						lives--;
+						print("Hit by a car! Froggers lives: "+lives);	
+				}else{
+						Destroy (gameObject);
+						Debug.Log("GAME OVER");
+						Application.LoadLevel ("Start");
+				}
+
+
+				readynow=true;
 		}
-	}
 
 
-	IEnumerator  froggerHit (){
+		IEnumerator Fade() {
 
-		readynow=false;
+				for (float f = 0; f <= 1; f += 0.1f) {
 
-		child.GetComponent<Renderer>().enabled = false;
-		yield return new WaitForSeconds(1);
+						Color color = TurnRed.material.GetColor ("_Color");
+						color.a = f;
+						TurnRed.material.SetColor ("_Color", color);
+						yield return new WaitForSeconds(.01f);
 
-		// check if frogger respawns or dies
-		if(lives>0){
-			transform.position = startPos; 		
-			lives--;
-			print("Hit by a car! Froggers lives: "+lives);	
-		}else{
-			Destroy (gameObject);
-			Debug.Log("GAME OVER");
-			Application.LoadLevel ("Start");
+				}
+
+				Color color2 = TurnRed.material.GetColor ("_Color");
+				color2.a = 1;
+				TurnRed.material.SetColor ("_Color", color2);
 		}
-
-		child.GetComponent<Renderer>().enabled = true;
-
-		readynow=true;
-	}
 }
