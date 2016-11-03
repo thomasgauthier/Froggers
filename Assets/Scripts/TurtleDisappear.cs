@@ -13,7 +13,9 @@ public class TurtleDisappear : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Vector3 center = transform.parent.GetComponent<BoxCollider> ().center;
+
+		transform.parent.GetComponent<BoxCollider> ().center = new Vector3 (center.x, transform.localPosition.y, center.z);
 	}
 
 	void GoDown(){
