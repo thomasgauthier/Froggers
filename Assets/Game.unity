@@ -878,26 +878,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e99b7fcbd00cb440288b02fbf2eb15d0, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1288614266 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010701236300, guid: 3c954036a29ea4e388ad4c4e7202642d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1433612075}
---- !u!54 &1288614268
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1288614266}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1349553364
 Prefab:
   m_ObjectHideFlags: 0
@@ -949,7 +929,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011279509522, guid: 3c954036a29ea4e388ad4c4e7202642d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4000011279509522, guid: 3c954036a29ea4e388ad4c4e7202642d, type: 2}
       propertyPath: m_LocalPosition.y
@@ -984,9 +964,7 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9e9fec73f7a2b42c289e6c421915839d, type: 2}
-    m_RemovedComponents:
-    - {fileID: 33000010324183550, guid: 3c954036a29ea4e388ad4c4e7202642d, type: 2}
-    - {fileID: 95000013247940696, guid: 3c954036a29ea4e388ad4c4e7202642d, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c954036a29ea4e388ad4c4e7202642d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1975350624
