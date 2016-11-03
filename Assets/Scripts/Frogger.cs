@@ -2,8 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class Frogger : MonoBehaviour {
-	public static int lives = 3;
-	public static int points = 0;
+
 	public float speed = 3.0f;
 	public GameObject blood;
 	public string upKey = "up"; 
@@ -93,8 +92,8 @@ public class Frogger : MonoBehaviour {
 
 		if(other.gameObject.tag == "Point"){
 			print("Extra Live");
-			lives++;
-			points += 100;
+			GameManager.Instance.lives++;
+			GameManager.Instance.points += 100;
 			Destroy (other.gameObject);
 		}
 	}
@@ -108,10 +107,10 @@ public class Frogger : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 
 		// check if frogger respawns or dies
-		if(lives>0){
+		if(GameManager.Instance.lives>0){
 			transform.position = startPos; 		
-			lives--;
-			print("Hit by a car! Froggers lives: "+lives);	
+			GameManager.Instance.lives--;
+			print("Hit by a car! Froggers lives: " + GameManager.Instance.lives);	
 		}else{
 			Destroy (gameObject);
 			Debug.Log("GAME OVER");
