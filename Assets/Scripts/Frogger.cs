@@ -80,6 +80,7 @@ public class Frogger : MonoBehaviour {
 		} 
 
 		if(other.gameObject.tag == "Water") {
+			print (other);
 			if(readynow){
 				StartCoroutine(froggerHit());
 			}

@@ -22,6 +22,7 @@ GameObject:
   - 114: {fileID: 114000012079992002}
   - 114: {fileID: 114000013346311790}
   - 54: {fileID: 54000010236999236}
+  - 65: {fileID: 65000013487320900}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Turtle
@@ -39,7 +40,8 @@ GameObject:
   - 4: {fileID: 4000013475113592}
   - 33: {fileID: 33000012106746294}
   - 23: {fileID: 23000012876560054}
-  - 95: {fileID: 95000013749074068}
+  - 95: {fileID: 95000011315035672}
+  - 114: {fileID: 114000012764672492}
   m_Layer: 0
   m_Name: Turtle-NEW
   m_TagString: Untagged
@@ -54,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010701236300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: -0.21, z: 0}
+  m_LocalPosition: {x: 0, y: -0.21, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -68,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011650353534}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -127,9 +129,21 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!95 &95000013749074068
+--- !u!65 &65000013487320900
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010701236300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.58, y: 1.94, z: 2.41}
+  m_Center: {x: 0.09, y: 0, z: 0}
+--- !u!95 &95000011315035672
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -137,8 +151,8 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011650353534}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: df15e4e5a9e4c4055b282855758a255e, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73a21b9ac7e004d93a0efd72a4ff66ef, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -158,6 +172,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldWidth: 20
+--- !u!114 &114000012764672492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011650353534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3fdc575f82d428391aa4c44ab2b8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upTime: 20
+  downTime: 10
 --- !u!114 &114000013346311790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,4 +196,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baba540b673604efd97714e5eeadc19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 0
