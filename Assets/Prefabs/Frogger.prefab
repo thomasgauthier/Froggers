@@ -23,6 +23,7 @@ GameObject:
   - 65: {fileID: 65000012289897116}
   - 114: {fileID: 114000011432126796}
   - 114: {fileID: 114000013214491556}
+  - 95: {fileID: 95000011154100460}
   m_Layer: 8
   m_Name: Frogger
   m_TagString: Untagged
@@ -218,6 +219,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012369443540}
   m_Enabled: 1
+--- !u!95 &95000011154100460
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011696462764}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d0ea246bea6fa4d96a44ed07d15b7c83, type: 3}
+  m_Controller: {fileID: 9100000, guid: 02abaf178d49349d7abc16ea9e490c4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000011432126796
 MonoBehaviour:
   m_ObjectHideFlags: 1

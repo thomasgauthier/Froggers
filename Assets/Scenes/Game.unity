@@ -299,9 +299,35 @@ Prefab:
       propertyPath: m_Center.z
       value: 0.23
       objectReference: {fileID: 0}
+    - target: {fileID: 4000011272677084, guid: c95e77e65c84e491ca5d45bea3625cdd, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c95e77e65c84e491ca5d45bea3625cdd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &198735410 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011696462764, guid: c95e77e65c84e491ca5d45bea3625cdd,
+    type: 2}
+  m_PrefabInternal: {fileID: 198735409}
+--- !u!95 &198735411
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 198735410}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02abaf178d49349d7abc16ea9e490c4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &214954974
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1b6020df8574d58a6b3a8f8969e8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 3
+  points: 0
   LevelName: Game
 --- !u!4 &214954976
 Transform:
