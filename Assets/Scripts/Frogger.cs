@@ -11,20 +11,57 @@ public class Frogger : MonoBehaviour {
 	public string rightKey = "right"; 
 	public string jumpKey = "m"; 
 
+	private float startColliderZ;
+
 	private Vector3 startPos;
 	private Transform child; 
 
+	private Animator froggerAnimator;
+
+	public Renderer rend;
+
+	void Awake(){
+		froggerAnimator = GetComponentInChildren<Animator> ();
+	}
+
 	void  Start (){
 		startPos = transform.position;
-		child = transform.Find("frogger"); 
+		child = transform.Find("Avatar"); 
 
+		startColliderZ = GetComponent<BoxCollider> ().center.z;
+		print (startColliderZ);
 	}
 
 	void  Update (){
 
+
+		Vector3 colCenter = GetComponent<BoxCollider> ().center;
+		GetComponent<BoxCollider> ().center = new Vector3 (colCenter.x, colCenter.y, startColliderZ + child.transform.localPosition.z);
+
 		float translationZ;
 		float translationY;   
 		float translationX;   
+
+
+		if (froggerAnimator.GetCurrentAnimatorStateInfo (0).IsName ("frog_jump_anim") &&
+			froggerAnimator.GetCurrentAnimatorStateInfo (0).normalizedTime >= 1.0f) {
+
+			Vector3 pos = transform.position;
+			Vector3 childPos = froggerAnimator.gameObject.transform.localPosition;
+
+			if (transform.rotation.eulerAngles.y == 0) {
+				transform.position = new Vector3 (pos.x, pos.y, pos.z + childPos.z);
+			} else if (transform.rotation.eulerAngles.y == 90) {
+				transform.position = new Vector3 (pos.x + childPos.z, pos.y, pos.z);
+			} else if (transform.rotation.eulerAngles.y == 180) {
+				transform.position = new Vector3 (pos.x, pos.y, pos.z - childPos.z);
+			} else if(transform.rotation.eulerAngles.y == 270){
+				transform.position = new Vector3 (pos.x - childPos.z, pos.y, pos.z);
+			}
+				froggerAnimator.gameObject.transform.localPosition = new Vector3 (childPos.x, childPos.y, 0);
+
+			froggerAnimator.SetTrigger ("idle");
+		}
 
 
 		if (Input.GetKeyDown(upKey)){
@@ -32,13 +69,29 @@ public class Frogger : MonoBehaviour {
 			// calculate Z translation
 			// deltaTime: time in seconds to complete the last frame
 			// Play child animation
-			transform.Translate(0,0,2.5f);
+			//transform.Translate(0,0,2.5f);
+			if (froggerAnimator.GetCurrentAnimatorStateInfo (0).IsName ("frog_jump_anim") &&
+			    froggerAnimator.GetCurrentAnimatorStateInfo (0).normalizedTime < 1.0f) {
+
+				transform.position = toBe ();
+
+			}
+
+			transform.rotation = Quaternion.Euler(0,0,0);
+			froggerAnimator.SetTrigger ("forward");
 
 		}else if (Input.GetKeyDown(downKey)){
+			if (froggerAnimator.GetCurrentAnimatorStateInfo (0).IsName ("frog_jump_anim") &&
+				froggerAnimator.GetCurrentAnimatorStateInfo (0).normalizedTime < 1.0f) {
 
+				transform.position = toBe ();
+
+			}
+
+			transform.rotation = Quaternion.Euler(0,180,0);
+			froggerAnimator.SetTrigger ("forward");
 			// calculate Z translation 
 			// Play child animation
-			transform.Translate(0,0,-2.5f);
 		} else {
 			// reset translation Z speed
 			translationZ = 0; 
@@ -54,15 +107,48 @@ public class Frogger : MonoBehaviour {
 		// Rotate frogger 90 degrees left or right
 		if(Input.GetKeyDown(rightKey)){
 			// right
-			transform.Translate(2.5f,0,0);
+			if (froggerAnimator.GetCurrentAnimatorStateInfo (0).IsName ("frog_jump_anim") &&
+				froggerAnimator.GetCurrentAnimatorStateInfo (0).normalizedTime < 1.0f) {
+
+				transform.position = toBe ();
+
+			}
+				
+			transform.rotation = Quaternion.Euler(0,90,0);
+			froggerAnimator.SetTrigger ("forward");
 
 
 
 		} else if(Input.GetKeyDown(leftKey)){
 			// left
-			transform.Translate(-2.5f,0,0);
+			if (froggerAnimator.GetCurrentAnimatorStateInfo (0).IsName ("frog_jump_anim") &&
+				froggerAnimator.GetCurrentAnimatorStateInfo (0).normalizedTime < 1.0f) {
+
+				transform.position = toBe ();
+
+			}
+
+			transform.rotation = Quaternion.Euler(0,270,0);
+			froggerAnimator.SetTrigger ("forward");
 		}
 			
+
+	}
+
+	Vector3 toBe(){
+		Vector3 pos = transform.position;
+
+		if (transform.rotation.eulerAngles.y == 0) {
+			return new Vector3 (pos.x, pos.y, pos.z + 2.5f);
+		} else if (transform.rotation.eulerAngles.y == 90) {
+			return new Vector3 (pos.x + 2.5f, pos.y, pos.z);
+		} else if (transform.rotation.eulerAngles.y == 180) {
+			return new Vector3 (pos.x, pos.y, pos.z - 2.5f);
+		} else if(transform.rotation.eulerAngles.y == 270){
+			return new Vector3 (pos.x - 2.5f, pos.y, pos.z);
+		}
+
+		return Vector3.zero;
 
 	}
 
@@ -71,8 +157,8 @@ public class Frogger : MonoBehaviour {
 	void  OnTriggerEnter ( Collider other  ){
 		if(other.gameObject.tag == "Car"){
 
-						Instantiate(blood, new Vector3(transform.position.x,0.55f,transform.position.z), Quaternion.identity);
 			if(readynow){
+			Instantiate(blood, new Vector3(child.transform.position.x,0.55f,child.transform.position.z), Quaternion.identity);
 				StartCoroutine(froggerHit());
 			}
 
@@ -103,7 +189,7 @@ public class Frogger : MonoBehaviour {
 
 		readynow=false;
 
-		child.GetComponent<Renderer>().enabled = false;
+		rend.enabled = false;
 		yield return new WaitForSeconds(1);
 
 		// check if frogger respawns or dies
@@ -117,7 +203,7 @@ public class Frogger : MonoBehaviour {
 			Application.LoadLevel ("Start");
 		}
 
-		child.GetComponent<Renderer>().enabled = true;
+		rend.enabled = true;
 
 		readynow=true;
 	}
