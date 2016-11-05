@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager> {
 		GUI.Box ( new Rect(5,30,140,20), "lives: " + lives);
 		GUI.Box ( new Rect(5,55,140,20), "points: " + points);
 
-		if(points > 0){
+		if(points >= 3){
 			Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
 			GUI.Label ( new Rect(screenCenter.x-2,screenCenter.y+100,screenCenter.x+2,screenCenter.y+14), "GAME OVER! Score: " + points);
 		}

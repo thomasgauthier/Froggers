@@ -194,8 +194,8 @@ public class Frogger : MonoBehaviour {
 
 		// check if frogger respawns or dies
 		if(GameManager.Instance.lives>0){
-			transform.position = startPos; 		
 			GameManager.Instance.lives--;
+            resetPos();
 			print("Hit by a car! Froggers lives: " + GameManager.Instance.lives);	
 		}else{
 			Destroy (gameObject);
@@ -207,4 +207,29 @@ public class Frogger : MonoBehaviour {
 
 		readynow=true;
 	}
+
+
+
+    public IEnumerator froggerCount()
+    {
+
+        readynow = false;
+
+        rend.enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+
+        yield return new WaitForSeconds(1);
+
+        resetPos();
+
+        GetComponent<BoxCollider>().enabled = true;
+        rend.enabled = true;
+
+        readynow = true;
+    }
+
+    public void resetPos()
+    {
+        transform.position = startPos;
+    }
 }
