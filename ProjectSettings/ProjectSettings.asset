@@ -100,11 +100,6 @@ PlayerSettings:
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0
   singlePassStereoRendering: 0
-  vrSettings:
-    google:
-      depthFormat: 0
-      useSustainedPerformanceMode: 0
-  vrSplashScreenShouldntTagAlong: 0
   protectGraphicsMemory: 0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
@@ -422,10 +417,6 @@ PlayerSettings:
   XboxOneSplashScreen: {fileID: 0}
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
-  vrEditorSettings:
-    google:
-      daydreamIconForeground: {fileID: 0}
-      daydreamIconBackground: {fileID: 0}
   intPropertyNames:
   - Android::ScriptingBackend
   - Standalone::ScriptingBackend
