@@ -61,6 +61,8 @@ public class Frogger : MonoBehaviour {
 				froggerAnimator.gameObject.transform.localPosition = new Vector3 (childPos.x, childPos.y, 0);
 
 			froggerAnimator.SetTrigger ("idle");
+			GetComponent<BoxCollider> ().center = new Vector3 (colCenter.x, colCenter.y, startColliderZ);
+
 		}
 
 
