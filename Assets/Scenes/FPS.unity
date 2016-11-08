@@ -202,6 +202,11 @@ Prefab:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 20000010268726442, guid: 27296bcaf736d493b9a9388b884b0eb2,
+        type: 2}
+      propertyPath: field of view
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27296bcaf736d493b9a9388b884b0eb2, type: 2}
   m_IsPrefabParent: 0
@@ -479,7 +484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   points: 0
-  LevelName: Game
 --- !u!4 &214954976
 Transform:
   m_ObjectHideFlags: 0

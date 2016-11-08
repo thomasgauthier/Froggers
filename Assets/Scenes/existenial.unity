@@ -297,8 +297,6 @@ GameObject:
   - 4: {fileID: 1584595717}
   - 54: {fileID: 1584595716}
   - 65: {fileID: 1584595715}
-  - 114: {fileID: 1584595714}
-  - 114: {fileID: 1584595713}
   - 95: {fileID: 1584595712}
   m_Layer: 8
   m_Name: Frogger
@@ -325,39 +323,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1584595713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000013214491556, guid: c95e77e65c84e491ca5d45bea3625cdd,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1584595711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdffc64cec2f5405090388006431e98b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worldWidth: 20
---- !u!114 &1584595714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000011432126796, guid: c95e77e65c84e491ca5d45bea3625cdd,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1584595711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4797e6ee54c441ed97b623d7522c162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  blood: {fileID: 100000, guid: daa073cf0e1d440209787f00638baa4b, type: 2}
-  upKey: up
-  downKey: down
-  leftKey: left
-  rightKey: right
-  jumpKey: m
-  rend: {fileID: 0}
 --- !u!65 &1584595715
 BoxCollider:
   m_ObjectHideFlags: 0
