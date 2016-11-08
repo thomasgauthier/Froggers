@@ -9,6 +9,11 @@ public class LoadSceneOnClick : MonoBehaviour {
 		SceneManager.LoadScene (sceneIndex);
 	}
 
+
+	public void LoadByName(string name) {
+			SceneManager.LoadScene (name);
+	}
+
 	public void QuitGame() {
 		#if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;

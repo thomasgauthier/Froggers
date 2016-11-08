@@ -25,10 +25,12 @@ public class Point : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(true);
 
-            other.gameObject.GetComponentInChildren<Animator>().SetTrigger("idle");
-
-            StartCoroutine(other.gameObject.GetComponent<Frogger>().froggerCount());
-            //other.gameObject.GetComponent<Frogger>().resetPos();
+			if (other.gameObject.GetComponent<Frogger> ()) {
+				other.gameObject.GetComponentInChildren<Animator>().SetTrigger("idle");
+				StartCoroutine (other.gameObject.GetComponent<Frogger> ().froggerCount ());
+			} else {
+				StartCoroutine (other.gameObject.GetComponent<FroggerFPS> ().froggerCount ());
+			}
 
             GameManager.Instance.points++;
             consumed = true;

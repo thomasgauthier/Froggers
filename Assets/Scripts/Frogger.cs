@@ -18,7 +18,7 @@ public class Frogger : MonoBehaviour {
 
 	private Animator froggerAnimator;
 
-	public Renderer rend;
+	public GameObject rend;
 
 	void Awake(){
 		froggerAnimator = GetComponentInChildren<Animator> ();
@@ -191,7 +191,7 @@ public class Frogger : MonoBehaviour {
 
 		readynow=false;
 
-		rend.enabled = false;
+		rend.SetActive (false);
 		yield return new WaitForSeconds(1);
 
 		// check if frogger respawns or dies
@@ -205,7 +205,7 @@ public class Frogger : MonoBehaviour {
 			Application.LoadLevel ("Start");
 		}
 
-		rend.enabled = true;
+		rend.SetActive (true);
 
 		readynow=true;
 	}
@@ -217,7 +217,7 @@ public class Frogger : MonoBehaviour {
 
         readynow = false;
 
-        rend.enabled = false;
+		rend.SetActive(false);
         GetComponent<BoxCollider>().enabled = false;
 
         yield return new WaitForSeconds(1);
@@ -225,7 +225,7 @@ public class Frogger : MonoBehaviour {
         resetPos();
 
         GetComponent<BoxCollider>().enabled = true;
-        rend.enabled = true;
+		rend.SetActive(true);
 
         readynow = true;
     }

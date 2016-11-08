@@ -109,4 +109,25 @@ public class FroggerFPS : MonoBehaviour {
 		color2.a = 1;
 		TurnRed.material.SetColor ("_Color", color2);
 	}
+
+	public IEnumerator froggerCount()
+	{
+
+		readynow = false;
+
+		GetComponent<CapsuleCollider>().enabled = false;
+
+		yield return new WaitForSeconds(0);
+
+		resetPos();
+
+		GetComponent<CapsuleCollider> ().enabled = true;
+
+		readynow = true;
+	}
+
+	public void resetPos()
+	{
+		transform.position = startPos;
+	}
 }
