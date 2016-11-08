@@ -516,7 +516,7 @@ MonoBehaviour:
   leftKey: left
   rightKey: right
   jumpKey: m
-  rend: {fileID: 58859299}
+  rend: {fileID: 58859297}
 --- !u!65 &198735414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -638,7 +638,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   points: 0
-  LevelName: Game
 --- !u!4 &214954976
 Transform:
   m_ObjectHideFlags: 0
