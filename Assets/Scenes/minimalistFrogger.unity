@@ -683,6 +683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMessage: {fileID: 728297629}
   minimalFinish: {fileID: 1888157191}
+  winSound: {fileID: 1888157196}
 --- !u!54 &1718767324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -763,6 +764,7 @@ GameObject:
   - 33: {fileID: 1888157194}
   - 65: {fileID: 1888157193}
   - 23: {fileID: 1888157192}
+  - 82: {fileID: 1888157196}
   m_Layer: 0
   m_Name: minimalFinish
   m_TagString: Untagged
@@ -831,6 +833,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!82 &1888157196
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1888157191}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300001, guid: 05389dd19146d4b05aa559b79da574d5,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 46d3aad48b1aa49808430bcec15a3ad9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &2111417278
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,3 +1015,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMessage: {fileID: 0}
   minimalFinish: {fileID: 0}
+  winSound: {fileID: 0}
