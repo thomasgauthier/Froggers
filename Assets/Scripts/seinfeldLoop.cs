@@ -3,19 +3,36 @@ using System.Collections;
 
 public class seinfeldLoop : MonoBehaviour {
 
-	CharacterController player;
+	public AudioSource seinfeld;
 
 	// Use this for initialization
 	void Start () {
-		player = GetComponent<CharacterController>();
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (player.velocity.magnitude > 1) {
-			GetComponent<AudioSource> ().UnPause ();
-		} else {
-			GetComponent<AudioSource> ().Pause ();
+		controlSound ();
+
+	}
+
+	void controlSound() {
+		
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			seinfeld.UnPause ();
+		} 
+		else if (Input.GetKeyDown (KeyCode.DownArrow)) {
+			seinfeld.UnPause ();
+		} 
+		else if (Input.GetKey (KeyCode.LeftArrow)) {
+			seinfeld.UnPause ();
+		} 
+		else if (Input.GetKey (KeyCode.RightArrow)) {
+			seinfeld.UnPause ();
+		} 
+		else {
+			seinfeld.Pause ();
 		}
 	}
+		
 }

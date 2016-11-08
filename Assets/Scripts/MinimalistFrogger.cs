@@ -8,6 +8,7 @@ public class MinimalistFrogger : MonoBehaviour {
 	private bool isShowing = false; //whether or not the happy face is showing
 	public GameObject minimalFinish; //red box
 	private bool youWin = false; //triggers win state
+	public AudioSource winSound; 
 
 	// Use this for initialization
 	void Start () { 
@@ -29,6 +30,7 @@ public class MinimalistFrogger : MonoBehaviour {
 		
 	void OnTriggerEnter (Collider minimalFinish) {
 		youWin = true;//trigger the win state
+		winSound.Play (); 
 	}
 
 	void backToStart() {
