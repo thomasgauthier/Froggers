@@ -17,3 +17,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FPS.unity
   - enabled: 1
     path: Assets/Scenes/minimalistFrogger.unity
+  - enabled: 1
+    path: Assets/Scenes/ReverseFrogger.unity
+  - enabled: 1
+    path: Assets/Scenes/politeFrogger.unity
