@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MinimalistFrogger : MonoBehaviour {
 	 
-	public GameObject winMessage; //a happy face
+	public GameObject winMessage = null; //a happy face
 	private bool isShowing = false; //whether or not the happy face is showing
 	public GameObject minimalFinish; //red box
 	private bool youWin = false; //triggers win state
