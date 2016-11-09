@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 
@@ -7,7 +8,7 @@ public class GameManager : Singleton<GameManager> {
 	public int points = 0;
 	public Camera[] _cameras; 
 	public int cameraInt = 0;
-	public Camera currentCamera;
+	public Camera currentCamera = null;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +30,7 @@ public class GameManager : Singleton<GameManager> {
 		if (Input.GetKeyDown ("escape")) {
 			Application.LoadLevel ("Start");
 		}
-		if (Input.GetKeyDown ("space")) {
+		if (Input.GetKeyDown ("space") && SceneManager.GetActiveScene().name == "BigBrother" ) {
 			currentCamera.enabled = false;
 			currentCamera = _cameras [(int)Random.Range (0, cameraInt-1)];
 			currentCamera.enabled = true;
