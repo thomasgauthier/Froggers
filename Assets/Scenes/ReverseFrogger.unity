@@ -212,8 +212,8 @@ GameObject:
   - 4: {fileID: 198735416}
   - 54: {fileID: 198735415}
   - 65: {fileID: 198735414}
-  - 114: {fileID: 198735413}
   - 114: {fileID: 198735412}
+  - 114: {fileID: 198735411}
   m_Layer: 8
   m_Name: Frogger
   m_TagString: Player
@@ -221,6 +221,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &198735411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 198735410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028ee3af6ae8a45aa8b6c17959b80536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  blood: {fileID: 100000, guid: daa073cf0e1d440209787f00638baa4b, type: 2}
+  upKey: up
+  downKey: down
+  leftKey: left
+  rightKey: right
+  jumpKey: m
+  rend: {fileID: 1095350476}
 --- !u!114 &198735412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,26 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldWidth: 20
---- !u!114 &198735413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000011432126796, guid: c95e77e65c84e491ca5d45bea3625cdd,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 198735410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4797e6ee54c441ed97b623d7522c162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  blood: {fileID: 100000, guid: daa073cf0e1d440209787f00638baa4b, type: 2}
-  upKey: up
-  downKey: down
-  leftKey: left
-  rightKey: right
-  jumpKey: m
-  rend: {fileID: 1095350476}
 --- !u!65 &198735414
 BoxCollider:
   m_ObjectHideFlags: 0

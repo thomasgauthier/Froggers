@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upTime: 20
-  downTime: 10
+  downTime: 5
 --- !u!114 &114000013346311790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,3 +197,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  useRigidbody: 1
