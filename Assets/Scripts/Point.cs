@@ -28,8 +28,10 @@ public class Point : MonoBehaviour
 			if (other.gameObject.GetComponent<Frogger> ()) {
 				other.gameObject.GetComponentInChildren<Animator>().SetTrigger("idle");
 				StartCoroutine (other.gameObject.GetComponent<Frogger> ().froggerCount ());
-			} else {
+			} else if(other.gameObject.GetComponent<FroggerFPS>()){
 				StartCoroutine (other.gameObject.GetComponent<FroggerFPS> ().froggerCount ());
+			}else if(other.gameObject.GetComponent<CarFrogger>()){
+				StartCoroutine (other.gameObject.GetComponent<CarFrogger> ().froggerCount ());
 			}
 
             GameManager.Instance.points++;
