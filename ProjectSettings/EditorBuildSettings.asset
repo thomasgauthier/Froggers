@@ -23,3 +23,7 @@ EditorBuildSettings:
     path: Assets/Scenes/politeFrogger.unity
   - enabled: 1
     path: Assets/Scenes/Quebec.unity
+  - enabled: 0
+    path: Assets/Scenes/existenial.unity
+  - enabled: 1
+    path: Assets/Scenes/existential.unity
