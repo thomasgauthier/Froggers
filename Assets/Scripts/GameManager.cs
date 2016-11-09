@@ -5,16 +5,34 @@ public class GameManager : Singleton<GameManager> {
 
 	public int lives = 3;
 	public int points = 0;
+	public Camera[] _cameras; 
+	public int cameraInt = 0;
+	public Camera currentCamera;
 
 	// Use this for initialization
 	void Start () {
 	// Should we put lifes count as a global variable ?
+		if (Application.loadedLevelName == "BigBrother") {
+			cameraInt = Camera.allCamerasCount;
+			_cameras = Camera.allCameras;
+
+			foreach (Camera cam in _cameras) {
+				cam.enabled = false;
+			}
+			_cameras [0].enabled = true;
+			currentCamera = _cameras [0];
+		}
 	}
 
 	void  Update (){
 		// Should we reset the lifes count here ? I am not sure
 		if (Input.GetKeyDown ("escape")) {
 			Application.LoadLevel ("Start");
+		}
+		if (Input.GetKeyDown ("space")) {
+			currentCamera.enabled = false;
+			currentCamera = _cameras [(int)Random.Range (0, cameraInt-1)];
+			currentCamera.enabled = true;
 		}
 	}		
 

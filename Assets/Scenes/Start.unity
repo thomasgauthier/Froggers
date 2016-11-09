@@ -196,8 +196,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1, y: -65.2}
-  m_SizeDelta: {x: 192, y: 30}
+  m_AnchoredPosition: {x: -1, y: -125.6}
+  m_SizeDelta: {x: 760, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281574536
 MonoBehaviour:
@@ -231,7 +231,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'F R O G G E R S '
+  m_Text: "F R O G G E R S \n- a story by Matt GN, Thomas Gauthier-Caron and Michel
+    Didier -"
 --- !u!222 &281574537
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -984,7 +985,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BigBrother
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
