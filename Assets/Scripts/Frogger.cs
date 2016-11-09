@@ -81,6 +81,8 @@ public class Frogger : MonoBehaviour {
 
 			transform.rotation = Quaternion.Euler(0,0,0);
 			froggerAnimator.SetTrigger ("forward");
+			GetComponent<AudioSource> ().Play ();
+
 
 		}else if (Input.GetKeyDown(downKey)){
 			if (froggerAnimator.GetCurrentAnimatorStateInfo (0).IsName ("frog_jump_anim") &&
@@ -92,6 +94,8 @@ public class Frogger : MonoBehaviour {
 
 			transform.rotation = Quaternion.Euler(0,180,0);
 			froggerAnimator.SetTrigger ("forward");
+			GetComponent<AudioSource> ().Play ();
+
 			// calculate Z translation 
 			// Play child animation
 		} else {
@@ -118,6 +122,7 @@ public class Frogger : MonoBehaviour {
 				
 			transform.rotation = Quaternion.Euler(0,90,0);
 			froggerAnimator.SetTrigger ("forward");
+			GetComponent<AudioSource> ().Play ();
 
 
 
@@ -132,6 +137,8 @@ public class Frogger : MonoBehaviour {
 
 			transform.rotation = Quaternion.Euler(0,270,0);
 			froggerAnimator.SetTrigger ("forward");
+			GetComponent<AudioSource> ().Play ();
+
 		}
 			
 
