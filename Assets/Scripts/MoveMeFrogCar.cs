@@ -59,7 +59,7 @@ public class MoveMeFrogCar : MonoBehaviour {
 		}
 
 		if (frogAnimator.GetCurrentAnimatorStateInfo (0).IsName ("idle")){
-
+			GetComponent<AudioSource>().Play ();
 			frogAnimator.SetTrigger ("forward");
 
 			}

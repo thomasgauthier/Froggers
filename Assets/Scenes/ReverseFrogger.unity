@@ -252,7 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdffc64cec2f5405090388006431e98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldWidth: 20
 --- !u!65 &198735414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -307,6 +306,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 211934108}
   - 95: {fileID: 211934109}
+  - 81: {fileID: 211934110}
   m_Layer: 8
   m_Name: Avatar
   m_TagString: Untagged
@@ -345,6 +345,13 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!81 &211934110
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211934107}
+  m_Enabled: 1
 --- !u!1001 &223792996
 Prefab:
   m_ObjectHideFlags: 0
@@ -1344,7 +1351,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 49
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 81000014178703882, guid: 3354cbce24f094da0b946bc25f9a1d13, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3354cbce24f094da0b946bc25f9a1d13, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &613748344
