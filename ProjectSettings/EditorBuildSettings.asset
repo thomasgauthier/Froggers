@@ -33,3 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/futile.unity
   - enabled: 1
     path: Assets/Scenes/seinfeld.unity
+  - enabled: 1
+    path: Assets/Scenes/PresidentTrump.unity
+  - enabled: 1
+    path: Assets/Scenes/FastAndFrogger.unity
